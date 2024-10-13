@@ -1,7 +1,7 @@
 const sql=require("mysql2")
 require("dotenv").config()
 
-const con=sql.createConnection(
+const con=sql.createPool(
     {
         host:process.env.host,
         port:process.env.port,
@@ -27,6 +27,7 @@ function getWinners()
         success(rows)
     }
 })
+
 })
 }
 
@@ -101,10 +102,5 @@ function deleteData(id)
 })
 })
 }
-con.end((error)=>{
-    if(error)
-    {
-        return err
-    }
-})
+
 module.exports={getWinners,getWinnersTime,addData,updateData,deleteData}

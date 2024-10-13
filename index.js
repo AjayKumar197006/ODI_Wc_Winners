@@ -12,6 +12,7 @@ app.get('/get-winners',(req,res)=>
     db.getWinners()
     .then((data)=>
     {
+        
         res.send(data)
     })
     .catch((err)=>
